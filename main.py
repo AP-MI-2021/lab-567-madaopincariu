@@ -3,5 +3,6 @@ from tests.testAll import runAllTests
 
 def main():
     runAllTests()
-    runMenu([])
+    lista=[]
+    runMenu(lista)
 main()

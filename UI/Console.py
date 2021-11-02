@@ -1,10 +1,14 @@
 from Domain.paine import toString
 from Logic.CRUD import adaugaPaine, stergePaine, modificaPaine
+from Logic.Functionalitati import concatenare, pretMaxPerLocatie
+
 
 def printMenu():
     print("1. Adaugare paine")
     print("2. Stergere paine")
     print("3. Modificare paine")
+    print("4.Concatenarea unui string citit la toate descrierile painilor cu prețul mai mare decât o valoare citită.")
+    print("5. Determinarea celui mai mare preț pentru fiecare locație.")
     print("a. Afisare paini")
     print("x. Iesire")
 
@@ -28,6 +32,16 @@ def uiModificaPaine(lista):
     locatie = input("Dati locatia: ")
     return modificaPaine(id, nume, descriere, pret,locatie, lista)
 
+def uiConcatenare(lista):
+    string=input("Dati un string: ")
+    valoare=int(input("Dati o valoare: "))
+    return concatenare(string,valoare,lista)
+
+def uiPretMaxPerLocatie(lista):
+    rezultat= pretMaxPerLocatie(lista)
+    for locatie in rezultat:
+        print("Locatia {} are pretul maxim {}".format(locatie,rezultat[locatie]))
+
 def showAll(lista):
     for paine in lista:
         print(toString(paine))
@@ -43,6 +57,10 @@ def runMenu(lista):
             lista = uiStergePaine(lista)
         elif optiune == "3":
             lista = uiModificaPaine(lista)
+        elif optiune =="4":
+            lista=uiConcatenare(lista)
+        elif optiune=="5":
+            uiPretMaxPerLocatie(lista)
         elif optiune == "a":
             showAll(lista)
         elif optiune == "x":

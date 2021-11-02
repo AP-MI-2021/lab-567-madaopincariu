@@ -8,27 +8,22 @@ def creeazaPaine (id, nume, descriere, pret, locatie):
     :param locatie: string
     :return: un dictionar ce retine o paine
     '''
-    return {
-        'id':id,
-        'nume':nume,
-        'descriere':descriere,
-        'pret':pret,
-        'locatie':locatie
-    }
+    return [id, nume, descriere, pret, locatie]
+
 def getId(paine):
     '''
     ia id-ul painii
     :param paine: dictionar de tipul paine
     :return:id-ul painii
     '''
-    return paine["id"]
+    return paine[0]
 def getNume(paine):
     '''
     ia numele painii
     :param paine: dictionar de tipul paine
     :return: numele painii
     '''
-    return paine["nume"]
+    return paine[1]
 
 def getDescriere(paine):
     '''
@@ -36,7 +31,7 @@ def getDescriere(paine):
     :param paine: dictionar de tip paine
     :return: descrierea painii
     '''
-    return paine["descriere"]
+    return paine[2]
 
 def getPret(paine):
     '''
@@ -44,7 +39,7 @@ def getPret(paine):
     :param paine: dictionar de tip paine
     :return: pretul painii
     '''
-    return paine["pret"]
+    return paine[3]
 
 def getLocatie(paine):
     '''
@@ -52,7 +47,7 @@ def getLocatie(paine):
     :param paine: dictionar de tip paine
     :return: locatia painii
     '''
-    return paine["locatie"]
+    return paine[4]
 
 def toString(paine):
     return "Id: {}, Nume: {}, Descriere: {}, Pret: {}, Locatie: {}".format(

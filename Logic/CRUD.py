@@ -24,10 +24,6 @@ def stergePaine(id, lista):
     '''
     return [paine for paine in lista if getId(paine)!=id]
 
-
-def creazaPaine(id, nume, descriere, pret, locatie):
-    pass
-
 def modificaPaine(id, nume, descriere, pret, locatie,lista):
     '''
     modifica o lista de paini
@@ -40,9 +36,10 @@ def modificaPaine(id, nume, descriere, pret, locatie,lista):
     :return: o lista de paini modificata
     '''
     listaNoua=[]
-    if getId(paine)==id:
-        paineNoua= creazaPaine(id, nume, descriere, pret, locatie)
-        listaNoua.append(paineNoua)
+    for paine in lista:
+        if getId(paine)==id:
+            paineNoua= creeazaPaine(id, nume, descriere, pret, locatie)
+            listaNoua.append(paineNoua)
     else:
         listaNoua.append(paine)
     return listaNoua
