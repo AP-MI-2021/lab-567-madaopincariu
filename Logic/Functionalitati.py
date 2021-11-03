@@ -9,6 +9,8 @@ def concatenare(string, valoare,lista):
     :param lista: lista de paini
     :return: lista de paini modificata
     '''
+    if valoare<0:
+        raise ValueError("Valoarea data trebuie sa fie un nr pozitiv")
     listaNoua=[]
     for paine in lista:
         if getPret(paine)> valoare:
@@ -41,3 +43,18 @@ def pretMaxPerLocatie(lista):
             rezultat[locatie]=pret
     return rezultat
 
+def sumaPretPerLocatie(lista):
+    '''
+
+    :param lista:
+    :return:
+    '''
+    rezultat = {}
+    for paine in lista:
+        pret = getPret(paine)
+        locatie = getLocatie(paine)
+        if locatie in rezultat:
+            if locatie == rezultat[pret]:
+                rezultat[locatie] =rezutat[locatie]+pret
+
+    return rezultat

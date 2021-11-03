@@ -13,29 +13,45 @@ def printMenu():
     print("x. Iesire")
 
 def uiAdaugaPaine(lista):
-    id = input("Dati id-ul: ")
-    nume = input("Dati numele: ")
-    descriere = input("Dati descrierea: ")
-    pret = float(input('Dati pretul: '))
-    locatie = input("Dati locatia: ")
-    return adaugaPaine(id, nume, descriere, pret, locatie, lista)
+    try:
+        id = input("Dati id-ul: ")
+        nume = input("Dati numele: ")
+        descriere = input("Dati descrierea: ")
+        pret = float(input('Dati pretul: '))
+        locatie = input("Dati locatia: ")
+        return adaugaPaine(id, nume, descriere, pret, locatie, lista)
+    except ValueError as ve:
+        print ("Eroare: {}".format(ve))
+        return lista
 
 def uiStergePaine(lista):
-    id = input("Dati id-ul painii de sters: ")
-    return stergePaine(id, lista)
+    try:
+        id = input("Dati id-ul painii de sters: ")
+        return stergePaine(id, lista)
+    except ValueError as ve:
+        print ("Eroare: {}".format(ve))
+        return lista
 
 def uiModificaPaine(lista):
-    id = input("Dati id-ul painii de modificat: ")
-    nume = input("Dati noul nume: ")
-    descriere = input("Dati noua descriere: ")
-    pret = float(input('Dati noul pret: '))
-    locatie = input("Dati locatia: ")
-    return modificaPaine(id, nume, descriere, pret,locatie, lista)
+    try:
+        id = input("Dati id-ul painii de modificat: ")
+        nume = input("Dati noul nume: ")
+        descriere = input("Dati noua descriere: ")
+        pret = float(input('Dati noul pret: '))
+        locatie = input("Dati locatia: ")
+        return modificaPaine(id, nume, descriere, pret,locatie, lista)
+    except ValueError as ve:
+        print ("Eroare: {}".format(ve))
+        return lista
 
 def uiConcatenare(lista):
-    string=input("Dati un string: ")
-    valoare=int(input("Dati o valoare: "))
-    return concatenare(string,valoare,lista)
+    try:
+        string=input("Dati un string: ")
+        valoare=int(input("Dati o valoare: "))
+        return concatenare(string,valoare,lista)
+    except ValueError as ve:
+        print ("Eroare: {}".format(ve))
+        return lista
 
 def uiPretMaxPerLocatie(lista):
     rezultat= pretMaxPerLocatie(lista)

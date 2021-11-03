@@ -12,6 +12,8 @@ def adaugaPaine(id, nume, descriere, pret, locatie,lista):
     :param lista: lista de paini
     :return: lista cu noua paine adaugata
     '''
+    if getById(id,lista) is not None:
+        raise ValueError("Id-ul exista deja!")
     paine=creeazaPaine(id, nume, descriere, pret, locatie)
     return lista + [paine]
 
@@ -22,6 +24,8 @@ def stergePaine(id, lista):
     :param lista: lista de paini
     :return: lista fara painea stearsa
     '''
+    if getById(id,lista) is None:
+        raise ValueError("Id-ul dat nu exista!")
     return [paine for paine in lista if getId(paine)!=id]
 
 def modificaPaine(id, nume, descriere, pret, locatie,lista):
@@ -35,6 +39,8 @@ def modificaPaine(id, nume, descriere, pret, locatie,lista):
     :param lista: lista de paini
     :return: o lista de paini modificata
     '''
+    if getById(id,lista) is None:
+        raise ValueError("Id-ul dat nu exista!")
     listaNoua=[]
     for paine in lista:
         if getId(paine)==id:
