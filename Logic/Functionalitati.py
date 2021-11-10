@@ -1,9 +1,9 @@
-from Domain.paine import getPret, getId, getNume, getDescriere, getLocatie
+from Domain.paine import getPret, getId, getNume, getDescriere, getLocatie, creeazaPaine
 from Logic.CRUD import adaugaPaine
 
 def concatenare(string, valoare,lista):
     '''
-    Concatenarea unui string citit la toate descrierile obiectelor cu prețul mai mare decât o valoare citită.
+    Concatenarea unui string citit la toate descrierile painilor cu prețul mai mare decât o valoare citită.
     :param string: un string dat
     :param valoare: o valoare data
     :param lista: lista de paini
@@ -14,7 +14,7 @@ def concatenare(string, valoare,lista):
     listaNoua=[]
     for paine in lista:
         if getPret(paine)> valoare:
-            paineNoua=adaugaPaine(
+            paineNoua=creeazaPaine(
                 getId(paine),
                 getNume(paine),
                 getDescriere(paine)+string,
@@ -45,16 +45,46 @@ def pretMaxPerLocatie(lista):
 
 def sumaPretPerLocatie(lista):
     '''
-
-    :param lista:
-    :return:
+    Afisarea prețurilor pentru fiecare locație
+    :param lista: lista de paini
+    :return: sumele prețurilor pentru fiecare locație
     '''
     rezultat = {}
     for paine in lista:
-        pret = getPret(paine)
         locatie = getLocatie(paine)
         if locatie in rezultat:
-            if locatie == rezultat[pret]:
-                rezultat[locatie] =rezutat[locatie]+pret
-
+            rezultat[locatie] += getPret(paine)
+        else:
+            rezultat[locatie]=getPret(paine)
     return rezultat
+
+def ordonareDupaPret(lista):
+    '''
+    Ordonarea obiectelor crescător după preț
+    :param lista: lista de paini
+    :return: lista de paini ordonata in functie de pret
+    '''
+    return sorted(lista, key=lambda paine: getPret(paine))
+
+def mutare(locatieVeche, lista, locatieNoua):
+    '''
+    Mutarea tuturor obiectelor dintr-o locație în alta.
+    :param locatieVeche: locatia initiala
+    :param lista: lista de paini
+    :return: lista modificata
+    '''
+    listaNoua=[]
+    for paine in lista:
+        if locatieVeche==getLocatie(paine):
+            paineNoua=creeazaPaine(
+                getId(paine),
+                getNume(paine),
+                getDescriere(paine),
+                getPret(paine),
+                getLocatie(paine).replace(getLocatie(paine), locatieNoua)
+            )
+            listaNoua.append(paineNoua)
+        else:
+            listaNoua.append(paine)
+    return listaNoua
+

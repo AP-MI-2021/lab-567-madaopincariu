@@ -1,6 +1,7 @@
 from Logic.CRUD import modificaPaine, stergePaine, adaugaPaine
 from UI.Console import showAll
 
+
 def help():
     '''
     Crearea unui nou meniu care foloseste comenzile: add, showall, delete, update
