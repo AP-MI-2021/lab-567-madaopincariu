@@ -100,20 +100,19 @@ def runMenu(lista):
     while True:
         printMenu()
         optiune = input("Dati optiunea: ")
-
         if optiune == "1":
-            lista = uiAdaugaPaine(lista,undoList,redoList)
+            lista = uiAdaugaPaine(lista, undoList, redoList)
         elif optiune == "2":
-            lista = uiStergePaine(lista,undoList,redoList)
+            lista = uiStergePaine(lista, undoList, redoList)
         elif optiune == "3":
-            lista = uiModificaPaine(lista,undoList,redoList)
-        elif optiune =="4":
-            lista=uiConcatenare(lista,undoList,redoList)
-        elif optiune=="5":
+            lista = uiModificaPaine(lista, undoList, redoList)
+        elif optiune == "4":
+            lista = uiConcatenare(lista, undoList, redoList)
+        elif optiune == "5":
             uiPretMaxPerLocatie(lista)
-        elif optiune=="6":
+        elif optiune == "6":
             uiOrdonareDupaPret(lista)
-        elif optiune=="8":
+        elif optiune == "8":
             uiSumaPretPerLocatie(lista)
         elif optiune=="7":
             uiMutare(lista,undoList,redoList)

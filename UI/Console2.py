@@ -1,10 +1,9 @@
 from Logic.CRUD import modificaPaine, stergePaine, adaugaPaine
 from UI.Console import showAll
 
-
 def help():
     '''
-    Crearea unui nou meniu care foloseste comenzile: add, showall, delete, update
+    Crearea unui nou meniu care foloseste comenzile: add, showall, delete, update, stop
     '''
     print("Pentru a adauga o paine noua scrieti: add, id, nume, descriere, pret, locatie")
     print("Pentru a sterge o paine scrieti: delete, id")
@@ -37,4 +36,4 @@ def meniu(lista):
                     print("Eroare: {}".format(ve))
                     return lista
             elif comanda[0] == "showall":
-                showAll()
+                showAll(lista)

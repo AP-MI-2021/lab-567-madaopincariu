@@ -46,8 +46,8 @@ def modificaPaine(id, nume, descriere, pret, locatie,lista):
         if getId(paine)==id:
             paineNoua= creeazaPaine(id, nume, descriere, pret, locatie)
             listaNoua.append(paineNoua)
-    else:
-        listaNoua.append(paine)
+        else:
+            listaNoua.append(paine)
     return listaNoua
 
 def getById(id,lista):
